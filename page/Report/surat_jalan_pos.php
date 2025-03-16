@@ -79,7 +79,7 @@ if (isset($_GET['tiket'])) {
                 </tr>
                 <tr>
                     <td style=" height: 18px;">Netto</td>
-                    <td colspan="2">: <?php echo number_format($netto); ?> Kg</td>
+                    <td colspan="2">: <?php echo number_format(abs($data['timbang1'] - $data['timbang2'])); ?> Kg</td>
                 </tr>
                 <tr>
                     <td>Catatan</td>

@@ -77,7 +77,7 @@ if (isset($_POST['save_hasil'])) {
     $hpp = $_POST['hpp'];
     $hjp = $_POST['hjp'];
 
-    $qryz = "INSERT INTO  `tb_weighing_scale` (`id_produk`,`mode_timbang`, `tiket`, `gudang`, `kendaraan`,`plate_recognize`, `pengemudi`, `tgl_masuk`, `asal`,`tujuan`,`material`, `timbang1`,`ocrTimbang1`,  `catatan`,`harga_pokok`,`harga_jual`, `createdby`, `createdon`, `rowstatus`) VALUES ('$id_material','$mode','$tiket', '$gudang', '$kendaraan','$plate_recognize', '$pengemudi', '$tglmasuk', '$asal','$tujuan', '$material', '$tara','$taraOCR', '$catatan','$hpp','$hjp','$nama_user', NOW(), '1')";
+    $qryz = "INSERT INTO  `tb_weighing_scale` (`id_produk`,`mode_timbang`, `tiket`, `gudang`, `kendaraan`,`plate_recognize`, `pengemudi`, `tgl_masuk`, `asal`,`tujuan`,`material`, `timbang1`,`ocrTimbang1`,  `catatan`,`harga_pokok`,`harga_jual`, `createdby`, `createdon`, `rowstatus`) VALUES ('$id_material','$mode','$tiket', '$gudang', '$kendaraan','$plate_recognize', '$pengemudi', now(), '$asal','$tujuan', '$material', '$tara','$taraOCR', '$catatan','$hpp','$hjp','$nama_user', NOW(), '1')";
     $txt = "[" . date('Y-m-d H:i:s') . "] " . $qryz . "\n";
     fwrite($file, $txt);
 

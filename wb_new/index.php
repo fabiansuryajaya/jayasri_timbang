@@ -174,12 +174,8 @@ include '../page/Model/Setting.php';
 </head>
 
 <body>
-
     <body class="h-vh-100">
-
         <!-- ++++++++++++++++++ KONTEN ++++++++++++++++++ -->
-
-
         <div id="content" class="h-vh-100 " style="background:aliceblue;">
             <div class="example">
                 <nav data-role="ribbonmenu" style="padding-bottom: 5px !important;" data-role-ribbonmenu="true"
@@ -192,8 +188,6 @@ include '../page/Model/Setting.php';
                     <div class="content-holder">
                         <div class="section active" id="section_main">
                             <div class="group">
-
-
                                 <button id="entry1" class="ribbon-button">
                                     <span class="icon"><img src="assets/img/1.png"></span>
                                     <span class="caption">Timbang Ke 1</span>
@@ -221,10 +215,60 @@ include '../page/Model/Setting.php';
                                 <div class="group-divider"></div>
 
                                 <div style="/*display: none !important;" class="d-flex flex-column" id="cc">
+                                    <center>  
+                                        <small>Konfigurasi</small>
+                                    </center>
+                                    <table class="table compact border">
+                                        <tr>
+                                            <td>
+                                                <strong>Speed</strong>
+                                            </td>
+                                            <td>
+                                                <input id="custom_baudrate" type="number" min="1" placeholder="Enter baudrate..." hidden>
 
+                                                <select id="baudrate" class="combobox">
+                                                    <option value="110" >110 baud</option>
+                                                    <option value="300" >300 baud</option>
+                                                    <option value="600" >600 baud</option>
+                                                    <option value="1200" >1200 baud</option>
+                                                    <option value="2400" >2400 baud</option>
+                                                    <option value="4800" >4800 baud</option>
+                                                    <option value="9600" selected>9600 baud</option>
+                                                    <option value="14400" >14400 baud</option>
+                                                    <option value="19200" >19200 baud</option>
+                                                    <option value="38400" >38400 baud</option> 
+                                                </select>
+                                                <select id="databits" title="Databits">
+                                                    <option value="7" selected>7</option>
+                                                    <option value="8" >8</option>
+                                                </select>
+                                                <select style="display:none;" id="parity" title="Parity">
+                                                    <option value="none" >None</option>
+                                                    <option value="even" selected>Even</option>
+                                                    <option value="odd">Odd</option>
+                                                </select> 
+                                                <select  id="stopbits" style="display:none;" title="Stopbits">
+                                                    <option value="1" selected>1</option>
+                                                    <option value="2">2</option>
+                                                </select>
+
+                                                <input type="checkbox" hidden id="rtscts">
+                                                <button hidden id="download">Download output</button>
+                                                <button hidden id="clear">Clear output</button>
+                                            </td>
+                                            <td>
+                                                <input type="button" id="connect" class="button info" value="Connect" />  
+                                                <input hidden id="echo" type="checkbox">
+                                                <input hidden id="enter_flush" type="checkbox">
+                                                <input hidden id="convert_eol" checked type="checkbox">
+                                                <input hidden id="autoconnect" checked type="checkbox">
+                                            </td>
+                                        </tr> 
+                                    </table>
                                 </div>
                                 <div class="group-divider"></div>
-                                <div class="d-inline  " id="inline">
+                                <div class="d-inline" id="inline">
+                                    <input type="text" name="kg" value="00000" class="indicator"  id="hasilkg"> 
                                 </div>
                                 <!-- <button class="command-button small shadowed" style="font-size: 16px !important;" id="captureTB" >Capture<br>Timbangan</button>  -->
                             </div>
@@ -234,11 +278,8 @@ include '../page/Model/Setting.php';
             </div>
             <!-- AREA -->
             <div id="page" class=" h-vh-100  " style="margin:5px;">
-
-
                 <!-- <img src="assets/img/wbs.png" id="logo"> -->
                 <img src="../assets/image/Jayasri_Besar.png" id="logo" style="width:10%; margin: 1%;">
-
             </div>
             <!-- AREA -->
             <div class=" h-vh-100  " id="streamCCTV" style="margin:5px;">
@@ -252,11 +293,8 @@ include '../page/Model/Setting.php';
                                             <strong>Mode Timbang</strong>
                                         </td>
                                         <td>
-                                            <input type="checkbox" onclick="switchMode()" checked id="switchMode"
-                                                data-role="switch" data-on="Pengiriman" data-off="Penerimaan">
-                                            <code class="success" id="statusMode"
-                                                style="padding: 3px 10px;height: auto;line-height: normal;margin-top: 0px;position: absolute;"></code>
-
+                                            <input type="checkbox" onclick="switchMode()" id="switchMode" data-role="switch" data-on="Pengiriman" data-off="Penerimaan">
+                                            <code class="success" id="statusMode" style="padding: 3px 10px;height: auto;line-height: normal;margin-top: 0px;position: absolute;"></code>
                                         </td>
                                     </tr>
                                     <tr>
@@ -340,16 +378,12 @@ include '../page/Model/Setting.php';
                                         </td>
                                     </tr>
 
-
-
                                     <tr>
                                         <td>
                                             <strong>Timbang 1</strong>
                                         </td>
                                         <td>
-
                                             <div class="input mb-1">
-
                                                 <input type="text" style="color: black !important;" id="taraOCR"
                                                     readonly data-role="input" data-clear-button="false"
                                                     placeholder="OCR" class="metro-input disabled" title=""
@@ -359,10 +393,10 @@ include '../page/Model/Setting.php';
                                                     class="metro-input disabled" placeholder="Indicator" title=""
                                                     data-role-input="true">
                                                 <input type="hidden" id="tglmasuk">
-                                                <div class="button-group">
+                                                <!-- <div class="button-group">
                                                     <button class="button input-custom-button primary" id="captureTB"
                                                         tabindex="-1" type="button">Capture</button>
-                                                </div>
+                                                </div> -->
                                             </div>
 
                                         </td>
@@ -395,12 +429,14 @@ include '../page/Model/Setting.php';
 
                                     <tr>
                                         <td style="width: 120px;">
-                                            <button class="button   success flat shadowed" id="save_hasil"> <span
-                                                    class="mif-floppy-disk"></span> &nbsp; Simpan</button>
+                                            <button class="button success flat shadowed" id="save_hasil">
+                                                <span class="mif-floppy-disk"></span> &nbsp; Simpan
+                                            </button>
                                         </td>
                                         <td>
-                                            <button class="button   warning flat shadowed" id="reset_data"> <span
-                                                    class="mif-refresh"></span> &nbsp; Reset Entry</button>
+                                            <button class="button warning flat shadowed" id="reset_data">
+                                                <span class="mif-refresh"></span> &nbsp; Reset Entry
+                                            </button>
                                         </td>
                                     </tr>
 
@@ -549,16 +585,12 @@ include '../page/Model/Setting.php';
                                         </td>
                                     </tr>
 
-
-
                                     <tr>
                                         <td>
                                             <strong>Timbang 2</strong>
                                         </td>
                                         <td>
-
                                             <div class="input mb-1">
-
                                                 <input type="text" style="color: black !important;" id="brutoOCR"
                                                     readonly data-role="input" data-clear-button="false"
                                                     placeholder="OCR" class="metro-input disabled" title=""
@@ -568,14 +600,11 @@ include '../page/Model/Setting.php';
                                                     class="metro-input disabled" placeholder="Indicator" title=""
                                                     data-role-input="true">
                                                 <input type="hidden" id="tglkeluar">
-
-                                                <div class="button-group">
+                                                <!-- <div class="button-group">
                                                     <button class="button input-custom-button primary" id="captureTB2"
                                                         tabindex="-1" type="button">Capture</button>
-                                                </div>
+                                                </div> -->
                                             </div>
-
-
                                         </td>
                                     </tr>
 
@@ -851,16 +880,12 @@ include '../page/Model/Setting.php';
                                     <tr>
                                         <td colspan="4">
                                             <center>
-                                                <a id="cetakSJ" target='_BLANK'
-                                                    style="display:inline-block !important; "
-                                                    class="button success flat small shadowed" href=''><span
-                                                        class="mif-printer"></span> &nbsp; Cetak Tiket Timbang</a>
-
-
-                                                <a id="cetakSJPOS" target='_BLANK'
-                                                    style="display:inline-block !important; "
-                                                    class="button success flat small shadowed" href=''><span
-                                                        class="mif-printer"></span> &nbsp; Cetak POS 80</a>
+                                                <a id="cetakSJ" target='_BLANK' style="display:inline-block !important; " class="button success flat small shadowed" href=''>
+                                                    <span class="mif-printer"></span> &nbsp; Cetak Tiket Timbang
+                                                </a>
+                                                <a id="cetakSJPOS" target='_BLANK' style="display:inline-block !important; " class="button success flat small shadowed" href=''>
+                                                    <span class="mif-printer"></span> &nbsp; Cetak POS 80
+                                                </a>
                                             </center>
                                             <br>
                                         </td>
@@ -1279,7 +1304,6 @@ include '../page/Model/Setting.php';
                         </tr>
                     </thead>
                     <tbody id="tampilKendaraanBody">
-
                     </tbody>
                 </table>
             </div>
@@ -1309,12 +1333,10 @@ include '../page/Model/Setting.php';
         <div class="info-box" id="info-box-4" data-role="infobox">
             <span class="button square closer va-middle"> </span>
             <div class="info-box-content">
-
                 <textarea rows="3" class="textarea" style="min-height:300px" id="receive_textarea" readonly></textarea>
                 <button id="download" class="button small info"><i class="mif-download"></i>&nbsp; Download log</button>
             </div>
         </div>
-
 
         <script defer src="assets/js/metro-4.4.3.js"></script>
 
@@ -1330,13 +1352,86 @@ include '../page/Model/Setting.php';
     </body>
 
 </html>
+<!-- <script src="../config/activation.php?cc&baud=<?= baud(); ?>&databits=7"></script> -->
 <script type="text/javascript">
-    document.getElementById("hasilkg").readOnly = true;
-    <?php
-    $hide = mysqli_fetch_array(mysqli_query($k, "SELECT content FROM conf_sistem WHERE id='35'"));
-    if ($hide['content'] == 'Yes') { ?>
-        const element = document.getElementById('cc');
-        element.style.setProperty('display', 'none', 'important');
+    let port;
+    let reader;
+    let isReading = false;
+    let internal_indicator = false;
+    let indicator_connect = false;
+    let element_connect = document.getElementById("connect");
 
-    <?php } ?>
+    document.addEventListener("DOMContentLoaded", async () => {
+        const ports = await navigator.serial.getPorts();
+        if (ports.length > 0) {
+            port = ports[0]; // Ambil port pertama yang tersedia
+            await connectScale(); // Jalankan fungsi connectScale() otomatis
+        }
+    });
+
+    async function connectScale() {
+        if (internal_indicator !== false) {
+            element_connect.value = 'Connect';
+            clearInterval(internal_indicator);
+            internal_indicator = false;
+            isReading = false;
+            reader.releaseLock();
+            return;
+        }
+
+        try {
+            const baud = document.getElementById("baudrate").value;
+            const data_bits = document.getElementById("databits").value;
+            const stop_bits = document.getElementById("stopbits").value;
+
+            if (!port) {
+                port = await navigator.serial.requestPort(); // Minta izin jika belum ada
+            }
+
+            await port.open({
+                baudRate: baud,
+                dataBits: data_bits,
+                parity: "even",
+                stopBits: stop_bits,
+            });
+
+            // Pastikan tidak membaca dua kali
+            if (isReading) return;
+            isReading = true;
+            element_connect.value = 'Disconnect';
+
+            reader = port.readable.getReader();
+
+            internal_indicator = setInterval(async () => {
+                try {
+                    const { value, done } = await reader.read();
+                    if (done) {
+                        element_connect.value = 'Connect';
+                        clearInterval(internal_indicator);
+                        isReading = false;
+                        reader.releaseLock();
+                        return;
+                    }
+                    const data = new TextDecoder().decode(value).trim();
+
+                    // Ambil hanya angka KG menggunakan RegExp
+                    const match = data.match(/\+\s*([\d.]+)\s*Kg/);
+                    if (match) {
+                        const weight = match[1] * 1; // Nilai KG
+                        document.getElementById('hasilkg').value = weight;
+                        document.getElementById('tara').value = weight;
+                        document.getElementById('bruto').value = weight;
+                        console.log(weight);
+                    }
+                } catch (error) {
+                    console.error("Error membaca data:", error);
+                }
+            }, 1000);
+        } catch (error) {
+            console.log("error", error);
+        }
+    }
+
+    document.getElementById("connect").addEventListener("click", connectScale);
+    document.getElementById("hasilkg").readOnly = true;
 </script>

@@ -21,7 +21,6 @@ var selectedSpeed = 9600;
 var connected = false;
 
 $(function() {
-    
     // get the available COM posts and add them to the combo list
     chrome.serial.getDevices(function(ports) {
         
@@ -43,9 +42,7 @@ $(function() {
     
     // bind a click event on the "connect" button
     $("#connect_button").bind("click", function(event, ui) {
-        
         if(!connected) {
-            
             // try to connect to the selected port with the selected speed
             selectedPort = $("#serial_ports_combobox").val();
             selectedSpeed = $("#baud_rates_combobox").val();
@@ -60,9 +57,7 @@ $(function() {
     
     // bind a click event on the "send" button
     $("#send_button").bind("click", function(event, ui) {
-        
         if(connected) {
-            
             var textToSend = $("#send_text").val();
             
             // add the selected end of line

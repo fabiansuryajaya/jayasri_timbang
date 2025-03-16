@@ -2,7 +2,7 @@
 // error_reporting(0);
 include '../config/koneksi.php';
 extract($_POST);
-$query = mysqli_query($k, "SELECT * FROM conf_sistem a WHERE a.desc IN ('cam2','cam4')");
+$query = mysqli_query($k, "SELECT * FROM conf_sistem a WHERE a.desc IN ('cam1', 'cam2', 'cam3', 'cam4')");
 
 while ($cctv = mysqli_fetch_array($query)) {
   $file = $cctv['content'];

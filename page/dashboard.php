@@ -151,18 +151,12 @@
         </div>
     </div>
     <script type="text/javascript">
-
-
         const day = '<?= date('d'); ?>';
         const month = '<?= date('M'); ?>';
         const year = '<?= date('Y'); ?>';
 
-
-
         // Pemnerimaan Harian
-
-        const tonase_penerimaan_harian = {
-        };
+        const tonase_penerimaan_harian = {};
         fetch('Ajax/dashboard.php?data=tonase_penerimaan_harian')
             .then(response => response.json())
             .then(data => {

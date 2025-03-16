@@ -4909,7 +4909,6 @@ $.noConflict = function() {
 
         info: function(){
             // console.info("Metro 4 - v" + Metro.version +". "+ Metro.showCompileTime());
-            console.info("WBS By Aldy");
         },
 
         showCompileTime: function(){

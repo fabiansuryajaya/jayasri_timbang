@@ -42,7 +42,6 @@ if (isset($_POST['save_hasil'])) {
     $response["message"] = "Error";
   }
   echo json_encode($response);
-
 }
 
 if (isset($_POST['save_hasil2'])) {
